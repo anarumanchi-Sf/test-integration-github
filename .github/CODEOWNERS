@@ -1,0 +1,15 @@
+# Global code owners - you are the owner of everything
+* @anarumanchi-Sf
+
+# Mule configuration files - require your review
+src/main/mule/ @anarumanchi-Sf
+pom.xml @anarumanchi-Sf
+mule-artifact.json @anarumanchi-Sf
+
+# Documentation files - require your review
+*.md @anarumanchi-Sf
+docs/ @anarumanchi-Sf
+
+# Configuration files - require your review
+.gitignore @anarumanchi-Sf
+.github/ @anarumanchi-Sf
