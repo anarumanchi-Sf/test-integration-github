@@ -91,9 +91,20 @@ Found a bug or have a feature request? Please use our issue templates:
 
 ## 📚 Documentation
 
-- [GitHub Setup Guide](GitHub_Setup_Steps.md) - Complete setup documentation
-- [Contributing Guidelines](CONTRIBUTING.md) - How to contribute to this project
+### 📖 Project Documentation
+- [**GitHub Setup Guide**](GitHub_Setup_Steps.md) - Complete setup documentation for pushing Mule projects to GitHub
+- [**Branch Protection Setup Guide**](Branch_Protection_Setup.md) - Comprehensive guide on setting up protected branches and team workflows
+- [**Contributing Guidelines**](CONTRIBUTING.md) - How to contribute to this project and team collaboration workflows
+
+### 🔧 Technical References
 - [MuleSoft Documentation](https://docs.mulesoft.com/) - Official Mule documentation
+- [GitHub Branch Protection](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches) - GitHub's official branch protection documentation
+
+### 📋 Quick Start Guides
+1. **New to this project?** → Start with [GitHub Setup Guide](GitHub_Setup_Steps.md)
+2. **Setting up team workflows?** → Read [Branch Protection Setup Guide](Branch_Protection_Setup.md)
+3. **Want to contribute?** → Follow [Contributing Guidelines](CONTRIBUTING.md)
+4. **Need help with Mule?** → Check [MuleSoft Documentation](https://docs.mulesoft.com/)
 
 ## 🔒 Security
 
