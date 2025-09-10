@@ -1,0 +1,176 @@
+# Mule Project GitHub Setup Guide
+
+## Overview
+This document outlines the complete process of setting up a Mule project with Git version control and pushing it to a GitHub repository.
+
+## Prerequisites
+- Git installed on your local machine
+- GitHub account with a repository created
+- Mule project already created locally
+
+## Step-by-Step Process
+
+### 1. Initialize Git Repository
+```bash
+cd /path/to/your/mule-project
+git init
+```
+**Purpose**: Creates a new Git repository in your project directory.
+
+### 2. Add All Project Files
+```bash
+git add .
+```
+**Purpose**: Stages all project files for the initial commit.
+
+### 3. Create Initial Commit
+```bash
+git commit -m "Initial commit: Mule project setup"
+```
+**Purpose**: Creates the first commit with all project files.
+
+### 4. Set Main Branch
+```bash
+git branch -M main
+```
+**Purpose**: Renames the default branch to 'main' (GitHub standard).
+
+### 5. Add Remote Repository
+```bash
+git remote add origin https://github.com/username/repository-name.git
+```
+**Purpose**: Connects your local repository to the GitHub repository.
+
+### 6. Handle Merge Conflicts (if needed)
+If the remote repository already contains files (like .gitignore), you may encounter merge conflicts:
+
+#### 6a. Configure Merge Strategy
+```bash
+git config pull.rebase false
+```
+
+#### 6b. Pull Remote Changes
+```bash
+git pull origin main --allow-unrelated-histories
+```
+
+#### 6c. Resolve Conflicts
+- Open conflicted files (usually .gitignore)
+- Remove conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+- Keep the appropriate content (Mule-specific .gitignore is recommended)
+
+#### 6d. Add Resolved Files
+```bash
+git add .gitignore
+git commit -m "Merge remote repository with local Mule project"
+```
+
+### 7. Push to GitHub
+```bash
+git push origin main
+```
+**Purpose**: Uploads your local commits to the GitHub repository.
+
+## Project Structure Included
+
+The following Mule project structure was successfully pushed:
+
+```
+mule-project/
+├── pom.xml                           # Maven configuration
+├── mule-artifact.json               # Mule artifact metadata
+├── .gitignore                       # Git ignore rules
+├── .vscode/                         # VS Code configuration
+│   ├── launch.json
+│   └── settings.json
+└── src/
+    ├── main/
+    │   ├── mule/
+    │   │   └── project-name.xml     # Main Mule flow
+    │   └── resources/
+    │       └── log4j2.xml           # Logging configuration
+    └── test/
+        └── resources/
+            └── log4j2-test.xml      # Test logging configuration
+```
+
+## Key Configuration Details
+
+### Mule Artifact Configuration
+- **Min Mule Version**: 4.9.9
+- **Java Specification**: Version 17
+- **Packaging**: mule-application
+
+### Git Ignore Rules
+The .gitignore file includes comprehensive rules for:
+- Java compiled files (*.class, *.jar, *.war, *.ear)
+- Eclipse/Studio specific files
+- Mule-specific directories (target/, .mule/)
+- System files (.DS_Store)
+- Log files (velocity.log)
+
+## Troubleshooting Common Issues
+
+### Issue: Push Rejected
+**Error**: `! [rejected] main -> main (fetch first)`
+**Solution**: The remote repository contains files not in your local repository. Follow steps 6a-6d above.
+
+### Issue: Merge Conflicts
+**Error**: `CONFLICT (add/add): Merge conflict in .gitignore`
+**Solution**: 
+1. Open the conflicted file
+2. Remove conflict markers
+3. Keep the Mule-specific content
+4. Add and commit the resolved file
+
+### Issue: Authentication Required
+**Error**: Authentication failed
+**Solution**: 
+- Use GitHub CLI: `gh auth login`
+- Or use personal access token instead of password
+- Or set up SSH keys for authentication
+
+## Best Practices
+
+1. **Always pull before pushing** when working in a team
+2. **Use descriptive commit messages** that explain what was changed
+3. **Keep .gitignore updated** with project-specific rules
+4. **Regular commits** - don't wait too long between commits
+5. **Branch strategy** - consider using feature branches for new development
+
+## Next Steps
+
+After successful setup:
+1. Clone the repository on other machines: `git clone https://github.com/username/repository-name.git`
+2. Set up branch protection rules in GitHub
+3. Configure CI/CD pipelines if needed
+4. Add team members as collaborators
+5. Set up issue tracking and project management
+
+## Commands Summary
+
+```bash
+# Complete setup sequence
+git init
+git add .
+git commit -m "Initial commit: Mule project setup"
+git branch -M main
+git remote add origin https://github.com/username/repository-name.git
+git config pull.rebase false
+git pull origin main --allow-unrelated-histories
+# Resolve any conflicts, then:
+git add .
+git commit -m "Merge remote repository with local Mule project"
+git push origin main
+```
+
+## Support
+
+For additional help:
+- Git documentation: https://git-scm.com/doc
+- GitHub documentation: https://docs.github.com
+- MuleSoft documentation: https://docs.mulesoft.com
+
+---
+*Document created: $(date)*
+*Project: Mule Integration with GitHub*
